@@ -86,26 +86,38 @@ def vote_for_candidate(driver, candidate_name_text_for_search, candidate_name_fo
     logging.info(f"將使用的 XPath: {xpath_candidate_to_click}")
     logging.info(f"正在訪問投票頁面: {TARGET_URL}")
     driver.get(TARGET_URL)
-    time.sleep(7) # 等待頁面基本加載
+    time.sleep(10)  # 增加等待時間，確保頁面完全加載
 
     try:
-        # 1. 使用動態 XPath 選擇候選人 (點擊包含候選人名字的 span)
+        # 1. 使用 JavaScript 選擇並點擊候選人
         logging.info(f"嘗試使用 XPath 選擇候選人 '{candidate_name_text_for_search}'...")
         candidate_element = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, xpath_candidate_to_click))
+            EC.presence_of_element_located((By.XPATH, xpath_candidate_to_click))
         )
-        candidate_element.click()
-        logging.info(f"已通過 XPath 點擊包含文本 '{candidate_name_text_for_search}' 的候選人選擇元素。")
         
-        time.sleep(1)
+        # 先滾動到候選人元素位置
+        driver.execute_script("arguments[0].scrollIntoView(true);", candidate_element)
+        time.sleep(2)  # 等待滾動完成
+        
+        # 使用 JavaScript 點擊
+        driver.execute_script("arguments[0].click();", candidate_element)
+        logging.info(f"已通過 JavaScript 點擊包含文本 '{candidate_name_text_for_search}' 的候選人選擇元素。")
+        
+        time.sleep(2)  # 增加點擊後的等待時間
 
-        # 2. 使用 XPath 點擊投票按鈕 (保持不變)
+        # 2. 使用 JavaScript 點擊投票按鈕
         logging.info(f"嘗試使用 XPath 點擊投票按鈕: {XPATH_VOTE_BUTTON}")
         vote_button_element = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, XPATH_VOTE_BUTTON))
+            EC.presence_of_element_located((By.XPATH, XPATH_VOTE_BUTTON))
         )
-        vote_button_element.click()
-        logging.info("已通過 XPath 點擊投票按鈕。")
+        
+        # 先滾動到投票按鈕位置
+        driver.execute_script("arguments[0].scrollIntoView(true);", vote_button_element)
+        time.sleep(2)  # 等待滾動完成
+        
+        # 使用 JavaScript 點擊
+        driver.execute_script("arguments[0].click();", vote_button_element)
+        logging.info("已通過 JavaScript 點擊投票按鈕。")
         
         return True
         
