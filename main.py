@@ -125,7 +125,6 @@ def vote_for_candidate(driver, candidate_name_text_for_search, candidate_name_fo
         logging.error(f"執行 XPath 投票操作時發生錯誤 (候選人: {candidate_name_text_for_search}): {str(e)}")
         return False
 
-# --- main_vote_process 和 wait_until_next_vote_cycle 與上一版本相似 ---
 def main_vote_process():
     driver = None 
     try:
