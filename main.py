@@ -79,14 +79,11 @@ def check_vote_success(driver):
         # logging.info(f"檢測到訊息邊框顏色: {border_color}")
         
         # 檢查邊框顏色是否為綠色 (#008000)
-        if 'rgb(0, 128, 0)' in border_color or '#008000' in border_color:
+        if '#008000' in border_color:
             logging.info("檢測到成功指示：邊框顏色為綠色 (#008000)")
             return True
-        elif 'rgb(255, 0, 0)' in border_color or '#ff0000' in border_color:
-            logging.warning("檢測到失敗指示：邊框顏色為紅色 (#ff0000)")
-            return False
         else:
-            logging.warning(f"未能確認投票狀態：邊框顏色 {border_color} 不是預期的顏色")
+            logging.warning("檢測到失敗指示：邊框顏色為紅色 (#ff0000)")
             return False
     except Exception as e:
         logging.error(f"檢查投票結果時發生錯誤：{str(e)}")
@@ -185,7 +182,6 @@ def main_vote_process():
             logging.error(f"為 {CANDIDATE_NAME_LOGGING} 的投票流程未能成功執行選擇或提交步驟。")
             result_status = "vote_failed"
         
-        time.sleep(2)
     except Exception as e:
         logging.error(f"在主投票過程中發生錯誤: {str(e)}")
         result_status = "error"
@@ -221,7 +217,7 @@ if __name__ == "__main__":
     
     # 定義不同狀態的等待時間（分鐘）
     wait_times = {
-        "vote_success": VOTE_INTERVAL_MINUTES,  # 成功投票後等待5分鐘
+        "vote_success": VOTE_INTERVAL_MINUTES,   # 成功投票後等待5分鐘
         "already_voted": 1,                      # 已投票狀態等待1分鐘
         "vote_unknown": 2,                       # 投票結果未知等待2分鐘
         "vote_failed": 3,                        # 投票失敗等待3分鐘
