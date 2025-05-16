@@ -25,8 +25,7 @@ VOTE_INTERVAL_MINUTES = 5
 
 # XPath 定位器
 # 動態構建候選人選擇的 XPath
-XPATH_CANDIDATE_SELECT_FORMAT_STRING = "//*[@id='post-63076']/div[2]/div[2]/div/div/div/div/form/div[3]/div[1]/ul//span[contains(normalize-space(.), '{}')]"
-# 投票按鈕的 XPath 保持不變
+XPATH_CANDIDATE_SELECT_FORMAT_STRING = "//label[contains(normalize-space(.), '{}')]"
 XPATH_VOTE_BUTTON = "//*[@id='post-63076']/div[2]/div[2]/div/div/div/div/form/div[5]/a"
 
 
