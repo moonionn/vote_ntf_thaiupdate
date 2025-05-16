@@ -1,20 +1,18 @@
 <!--- .github/ISSUE_TEMPLATE/bug_report.md -->
 ---
+## all
 name: Bug report
 about: Report a bug
 title: "[Bug]"
 labels: bug
-assignees: Bosh-Kuo
+assignees: Moonion
 
 ---
 
 ## Describe
-<!--- A clear and concise description of what the bug is. -->
+1. 須先偵測是否有sucess_keyword是否已出現
+2. 將XPath簡化
 
 ## TODO
-<!---
-List all sub-tasks to fix this issue
-ex:
-- [ ] fix problem A
-- [ ] fix problem B
--->
+- [x] fix XPATH_CANDIDATE_SELECT_FORMAT_STRING
+- [ ] fix 先偵測是否有sucess_keyword是否已出現
