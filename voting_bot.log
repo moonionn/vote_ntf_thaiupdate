@@ -1270,3 +1270,133 @@ Stacktrace:
 2025-05-17 01:42:43,091 - INFO - 下次投票計劃時間: 2025-05-17 01:47:43
 2025-05-17 01:42:43,091 - INFO - 距離下次投票還有 4 分鐘 59 秒。休眠 60 秒。
 2025-05-17 01:42:44,707 - INFO - 程式被使用者手動中斷。正在退出...
+2025-05-17 02:59:07,152 - INFO - 投票機器人開始執行，目標候選人: Namtan Tipnaree
+2025-05-17 02:59:07,152 - INFO - --- 開始第 1 輪投票 ---
+2025-05-17 02:59:07,152 - INFO - 開始設置 Chrome 驅動程式...
+2025-05-17 02:59:07,152 - INFO - 使用 webdriver-manager 自動獲取 ChromeDriver...
+2025-05-17 02:59:07,152 - INFO - ====== WebDriver manager ======
+2025-05-17 02:59:07,378 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-17 02:59:07,688 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-17 02:59:08,005 - INFO - Driver [/Users/moonion/.wdm/drivers/chromedriver/mac64/136.0.7103.94/chromedriver-mac-arm64/chromedriver] found in cache
+2025-05-17 02:59:09,521 - INFO - Chrome 驅動程式設置完成
+2025-05-17 02:59:09,521 - INFO - 準備投票給候選人: Namtan Tipnaree (通過 XPath 文本搜索: 'Namtan Tipnaree')
+2025-05-17 02:59:09,521 - INFO - 將使用的 XPath: //label[contains(normalize-space(.), 'Namtan Tipnaree')]
+2025-05-17 02:59:09,521 - INFO - 正在訪問投票頁面: https://www.thaiupdate.info/the-best-glamorous-star-final/
+2025-05-17 02:59:16,495 - INFO - 嘗試使用 XPath 選擇候選人 'Namtan Tipnaree'...
+2025-05-17 02:59:17,552 - INFO - 已通過 JavaScript 點擊包含文本 'Namtan Tipnaree' 的候選人選擇元素。
+2025-05-17 02:59:18,557 - INFO - 嘗試使用 XPath 點擊投票按鈕: //*[@id='post-63076']/div[2]/div[2]/div/div/div/div/form/div[5]/a
+2025-05-17 02:59:19,714 - INFO - 已通過 JavaScript 點擊投票按鈕。
+2025-05-17 02:59:19,714 - INFO - 檢查投票結果...
+2025-05-17 02:59:21,738 - INFO - 檢測到成功關鍵字: 'thank you for your vote'
+2025-05-17 02:59:21,739 - INFO - 成功為 Namtan Tipnaree 投票！
+2025-05-17 02:59:23,739 - INFO - 關閉瀏覽器...
+2025-05-17 02:59:23,917 - INFO - 瀏覽器已關閉。
+2025-05-17 02:59:23,917 - INFO - --- 第 1 輪投票流程結束 ---
+2025-05-17 02:59:23,917 - INFO - 下次投票計劃時間: 2025-05-17 03:04:23
+2025-05-17 02:59:23,917 - INFO - 距離下次投票還有 4 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:00:23,920 - INFO - 距離下次投票還有 3 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:01:23,923 - INFO - 距離下次投票還有 2 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:02:23,943 - INFO - 距離下次投票還有 1 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:03:23,955 - INFO - 距離下次投票還有 0 分鐘 59 秒。休眠 59 秒。
+2025-05-17 03:04:23,965 - INFO - --- 開始第 2 輪投票 ---
+2025-05-17 03:04:23,967 - INFO - 開始設置 Chrome 驅動程式...
+2025-05-17 03:04:23,969 - INFO - 使用 webdriver-manager 自動獲取 ChromeDriver...
+2025-05-17 03:04:23,970 - INFO - ====== WebDriver manager ======
+2025-05-17 03:04:24,170 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-17 03:04:24,482 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-17 03:04:24,803 - INFO - Driver [/Users/moonion/.wdm/drivers/chromedriver/mac64/136.0.7103.94/chromedriver-mac-arm64/chromedriver] found in cache
+2025-05-17 03:04:26,205 - INFO - Chrome 驅動程式設置完成
+2025-05-17 03:04:26,206 - INFO - 準備投票給候選人: Namtan Tipnaree (通過 XPath 文本搜索: 'Namtan Tipnaree')
+2025-05-17 03:04:26,206 - INFO - 將使用的 XPath: //label[contains(normalize-space(.), 'Namtan Tipnaree')]
+2025-05-17 03:04:26,206 - INFO - 正在訪問投票頁面: https://www.thaiupdate.info/the-best-glamorous-star-final/
+2025-05-17 03:04:34,110 - INFO - 嘗試使用 XPath 選擇候選人 'Namtan Tipnaree'...
+2025-05-17 03:04:35,175 - INFO - 已通過 JavaScript 點擊包含文本 'Namtan Tipnaree' 的候選人選擇元素。
+2025-05-17 03:04:36,178 - INFO - 嘗試使用 XPath 點擊投票按鈕: //*[@id='post-63076']/div[2]/div[2]/div/div/div/div/form/div[5]/a
+2025-05-17 03:04:37,437 - INFO - 已通過 JavaScript 點擊投票按鈕。
+2025-05-17 03:04:37,437 - INFO - 檢查投票結果...
+2025-05-17 03:04:41,232 - INFO - 檢測到成功關鍵字: 'thank you for your vote'
+2025-05-17 03:04:41,232 - INFO - 成功為 Namtan Tipnaree 投票！
+2025-05-17 03:04:43,236 - INFO - 關閉瀏覽器...
+2025-05-17 03:04:43,396 - INFO - 瀏覽器已關閉。
+2025-05-17 03:04:43,396 - INFO - --- 第 2 輪投票流程結束 ---
+2025-05-17 03:04:43,396 - INFO - 下次投票計劃時間: 2025-05-17 03:09:43
+2025-05-17 03:04:43,396 - INFO - 距離下次投票還有 4 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:05:43,401 - INFO - 距離下次投票還有 3 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:06:43,413 - INFO - 距離下次投票還有 2 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:07:43,420 - INFO - 距離下次投票還有 1 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:08:43,429 - INFO - 距離下次投票還有 0 分鐘 59 秒。休眠 59 秒。
+2025-05-17 03:09:43,437 - INFO - --- 開始第 3 輪投票 ---
+2025-05-17 03:09:43,440 - INFO - 開始設置 Chrome 驅動程式...
+2025-05-17 03:09:43,441 - INFO - 使用 webdriver-manager 自動獲取 ChromeDriver...
+2025-05-17 03:09:43,441 - INFO - ====== WebDriver manager ======
+2025-05-17 03:09:43,650 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-17 03:09:43,935 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-17 03:09:44,205 - INFO - Driver [/Users/moonion/.wdm/drivers/chromedriver/mac64/136.0.7103.94/chromedriver-mac-arm64/chromedriver] found in cache
+2025-05-17 03:09:45,196 - INFO - Chrome 驅動程式設置完成
+2025-05-17 03:09:45,196 - INFO - 準備投票給候選人: Namtan Tipnaree (通過 XPath 文本搜索: 'Namtan Tipnaree')
+2025-05-17 03:09:45,196 - INFO - 將使用的 XPath: //label[contains(normalize-space(.), 'Namtan Tipnaree')]
+2025-05-17 03:09:45,196 - INFO - 正在訪問投票頁面: https://www.thaiupdate.info/the-best-glamorous-star-final/
+2025-05-17 03:09:49,225 - INFO - 嘗試使用 XPath 選擇候選人 'Namtan Tipnaree'...
+2025-05-17 03:09:50,291 - INFO - 已通過 JavaScript 點擊包含文本 'Namtan Tipnaree' 的候選人選擇元素。
+2025-05-17 03:09:51,294 - INFO - 嘗試使用 XPath 點擊投票按鈕: //*[@id='post-63076']/div[2]/div[2]/div/div/div/div/form/div[5]/a
+2025-05-17 03:09:52,385 - INFO - 已通過 JavaScript 點擊投票按鈕。
+2025-05-17 03:09:52,385 - INFO - 檢查投票結果...
+2025-05-17 03:09:54,417 - INFO - 檢測到成功關鍵字: 'thank you for your vote'
+2025-05-17 03:09:54,417 - INFO - 成功為 Namtan Tipnaree 投票！
+2025-05-17 03:09:56,422 - INFO - 關閉瀏覽器...
+2025-05-17 03:09:56,572 - INFO - 瀏覽器已關閉。
+2025-05-17 03:09:56,572 - INFO - --- 第 3 輪投票流程結束 ---
+2025-05-17 03:09:56,572 - INFO - 下次投票計劃時間: 2025-05-17 03:14:56
+2025-05-17 03:09:56,572 - INFO - 距離下次投票還有 4 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:10:56,578 - INFO - 距離下次投票還有 3 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:10:58,846 - INFO - 程式被使用者手動中斷。正在退出...
+2025-05-17 03:26:37,757 - INFO - 投票機器人開始執行，目標候選人: Namtan Tipnaree
+2025-05-17 03:26:37,757 - INFO - --- 開始第 1 輪投票 ---
+2025-05-17 03:26:37,757 - INFO - 開始設置 Chrome 驅動程式...
+2025-05-17 03:26:37,757 - INFO - 使用 webdriver-manager 自動獲取 ChromeDriver...
+2025-05-17 03:26:37,757 - INFO - ====== WebDriver manager ======
+2025-05-17 03:26:37,971 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-17 03:26:38,290 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-17 03:26:38,612 - INFO - Driver [/Users/moonion/.wdm/drivers/chromedriver/mac64/136.0.7103.94/chromedriver-mac-arm64/chromedriver] found in cache
+2025-05-17 03:26:40,075 - INFO - Chrome 驅動程式設置完成
+2025-05-17 03:26:40,075 - INFO - 準備投票給候選人: Namtan Tipnaree (通過 XPath 文本搜索: 'Namtan Tipnaree')
+2025-05-17 03:26:40,075 - INFO - 將使用的 XPath: //label[contains(normalize-space(.), 'Namtan Tipnaree')]
+2025-05-17 03:26:40,075 - INFO - 正在訪問投票頁面: https://www.thaiupdate.info/the-best-glamorous-star-final/
+2025-05-17 03:26:45,956 - INFO - 嘗試使用 XPath 選擇候選人 'Namtan Tipnaree'...
+2025-05-17 03:26:46,996 - INFO - 已通過 JavaScript 點擊包含文本 'Namtan Tipnaree' 的候選人選擇元素。
+2025-05-17 03:26:48,000 - INFO - 嘗試使用 XPath 點擊投票按鈕: //*[@id='post-63076']/div[2]/div[2]/div/div/div/div/form/div[5]/a
+2025-05-17 03:26:49,105 - INFO - 已通過 JavaScript 點擊投票按鈕。
+2025-05-17 03:26:49,105 - INFO - 檢查投票結果...
+2025-05-17 03:26:51,133 - INFO - 檢測到成功關鍵字: 'thank you for your vote'
+2025-05-17 03:26:51,133 - INFO - 成功為 Namtan Tipnaree 投票！
+2025-05-17 03:26:53,134 - INFO - 關閉瀏覽器...
+2025-05-17 03:26:53,251 - INFO - 瀏覽器已關閉。
+2025-05-17 03:26:53,251 - INFO - --- 第 1 輪投票流程結束 ---
+2025-05-17 03:26:53,251 - INFO - 下次投票計劃時間: 2025-05-17 03:31:53
+2025-05-17 03:26:53,251 - INFO - 距離下次投票還有 4 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:27:49,404 - INFO - 程式被使用者手動中斷。正在退出...
+2025-05-17 03:27:49,742 - INFO - 投票機器人開始執行，目標候選人: Namtan Tipnaree
+2025-05-17 03:27:49,742 - INFO - --- 開始第 1 輪投票 ---
+2025-05-17 03:27:49,742 - INFO - 開始設置 Chrome 驅動程式...
+2025-05-17 03:27:49,742 - INFO - 使用 webdriver-manager 自動獲取 ChromeDriver...
+2025-05-17 03:27:49,742 - INFO - ====== WebDriver manager ======
+2025-05-17 03:27:49,888 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-17 03:27:50,207 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-17 03:27:50,499 - INFO - Driver [/Users/moonion/.wdm/drivers/chromedriver/mac64/136.0.7103.94/chromedriver-mac-arm64/chromedriver] found in cache
+2025-05-17 03:27:51,519 - INFO - Chrome 驅動程式設置完成
+2025-05-17 03:27:51,519 - INFO - 準備投票給候選人: Namtan Tipnaree (通過 XPath 文本搜索: 'Namtan Tipnaree')
+2025-05-17 03:27:51,519 - INFO - 將使用的 XPath: //label[contains(normalize-space(.), 'Namtan Tipnaree')]
+2025-05-17 03:27:51,519 - INFO - 正在訪問投票頁面: https://www.thaiupdate.info/the-best-glamorous-star-final/
+2025-05-17 03:27:57,153 - INFO - 嘗試使用 XPath 選擇候選人 'Namtan Tipnaree'...
+2025-05-17 03:27:58,736 - INFO - 已通過 JavaScript 點擊包含文本 'Namtan Tipnaree' 的候選人選擇元素。
+2025-05-17 03:27:59,742 - INFO - 嘗試使用 XPath 點擊投票按鈕: //*[@id='post-63076']/div[2]/div[2]/div/div/div/div/form/div[5]/a
+2025-05-17 03:28:00,862 - INFO - 已通過 JavaScript 點擊投票按鈕。
+2025-05-17 03:28:00,862 - INFO - 檢查投票結果...
+2025-05-17 03:28:02,894 - INFO - 檢測到成功關鍵字: 'thank you for your vote'
+2025-05-17 03:28:02,895 - INFO - 成功為 Namtan Tipnaree 投票！
+2025-05-17 03:28:04,898 - INFO - 關閉瀏覽器...
+2025-05-17 03:28:05,052 - INFO - 瀏覽器已關閉。
+2025-05-17 03:28:05,052 - INFO - --- 第 1 輪投票流程結束 ---
+2025-05-17 03:28:05,053 - INFO - 下次投票計劃時間: 2025-05-17 03:33:05
+2025-05-17 03:28:05,053 - INFO - 距離下次投票還有 4 分鐘 59 秒。休眠 60 秒。
+2025-05-17 03:28:07,733 - INFO - 程式被使用者手動中斷。正在退出...
