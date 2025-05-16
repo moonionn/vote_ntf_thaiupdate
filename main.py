@@ -44,7 +44,7 @@ def setup_driver():
     # 此函數與上一版本相同，這裡省略以節省空間，實際腳本中應保留
     logging.info("開始設置 Chrome 驅動程式...")
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox') # ... 其他選項 ...
     chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36')
     try:
@@ -61,28 +61,21 @@ def setup_driver():
         raise
 
 def check_vote_success(driver):
-    # 此函數與上一版本相同，這裡省略以節省空間，實際腳本中應保留
     try:
         logging.info("檢查投票結果...")
-        time.sleep(3) # 等待投票後頁面響應
+        time.sleep(2)  # 等待投票後頁面響應
         page_source = driver.page_source.lower()
-        success_keywords = ['thank you for your vote', 'voted successfully', 'vote has been counted']
-        for keyword in success_keywords:
-            if keyword in page_source:
-                logging.info(f"檢測到成功關鍵字: '{keyword}'")
-                return True
-        error_keywords = ['error', 'failed', 'already voted', 'try again later', '失敗', '錯誤', '已經投票', '请稍后再试', '請稍後再試']
-        for keyword in error_keywords:
-            if keyword in page_source:
-                logging.warning(f"檢測到潛在錯誤/限制關鍵字: '{keyword}'")
-                return False
-        logging.warning("未檢測到明確的成功或失敗關鍵字。投票結果未知。")
+        success_keyword = 'thank you for your vote'
+        if success_keyword in page_source:
+            logging.info(f"檢測到成功關鍵字: '{success_keyword}'")
+            return True
+        logging.warning("未檢測到成功關鍵字。投票結果未知。")
         return False
     except Exception as e:
         logging.error(f"檢查投票結果時發生錯誤：{str(e)}")
         return False
 
-# --- 修改後的 vote_for_candidate 函數 ---
+# --- vote_for_candidate ---
 def vote_for_candidate(driver, candidate_name_text_for_search, candidate_name_for_log):
     # 使用 .format() 方法將候選人名字插入到 XPath 字符串中
     xpath_candidate_to_click = XPATH_CANDIDATE_SELECT_FORMAT_STRING.format(candidate_name_text_for_search)
@@ -91,7 +84,7 @@ def vote_for_candidate(driver, candidate_name_text_for_search, candidate_name_fo
     logging.info(f"將使用的 XPath: {xpath_candidate_to_click}")
     logging.info(f"正在訪問投票頁面: {TARGET_URL}")
     driver.get(TARGET_URL)
-    time.sleep(10)  # 增加等待時間，確保頁面完全加載
+    time.sleep(3)  # 增加等待時間，確保頁面完全加載
 
     try:
         # 1. 使用 JavaScript 選擇並點擊候選人
@@ -102,13 +95,13 @@ def vote_for_candidate(driver, candidate_name_text_for_search, candidate_name_fo
         
         # 先滾動到候選人元素位置
         driver.execute_script("arguments[0].scrollIntoView(true);", candidate_element)
-        time.sleep(2)  # 等待滾動完成
+        time.sleep(1)  # 等待滾動完成
         
         # 使用 JavaScript 點擊
         driver.execute_script("arguments[0].click();", candidate_element)
         logging.info(f"已通過 JavaScript 點擊包含文本 '{candidate_name_text_for_search}' 的候選人選擇元素。")
         
-        time.sleep(2)  # 增加點擊後的等待時間
+        time.sleep(1)  # 增加點擊後的等待時間
 
         # 2. 使用 JavaScript 點擊投票按鈕
         logging.info(f"嘗試使用 XPath 點擊投票按鈕: {XPATH_VOTE_BUTTON}")
@@ -118,7 +111,7 @@ def vote_for_candidate(driver, candidate_name_text_for_search, candidate_name_fo
         
         # 先滾動到投票按鈕位置
         driver.execute_script("arguments[0].scrollIntoView(true);", vote_button_element)
-        time.sleep(2)  # 等待滾動完成
+        time.sleep(1)  # 等待滾動完成
         
         # 使用 JavaScript 點擊
         driver.execute_script("arguments[0].click();", vote_button_element)
@@ -156,7 +149,6 @@ def main_vote_process():
             logging.info("瀏覽器已關閉。")
 
 def wait_until_next_vote_cycle(interval_minutes):
-    # 此函數與上一版本相同，這裡省略以節省空間，實際腳本中應保留
     now = datetime.now()
     next_vote_time = now + timedelta(minutes=interval_minutes)
     # ... (其餘等待邏輯)
@@ -174,7 +166,7 @@ def wait_until_next_vote_cycle(interval_minutes):
 
 
 if __name__ == "__main__":
-    logging.info(f"投票機器人開始執行，目標候選人: {CANDIDATE_NAME_LOGGING} (通過文本搜索: '{CANDIDATE_NAME_TEXT_TO_FIND}')")
+    logging.info(f"投票機器人開始執行，目標候選人: {CANDIDATE_NAME_LOGGING}")
     run_count = 0
     while True:
         run_count += 1
