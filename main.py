@@ -11,10 +11,15 @@ from selenium.common.exceptions import TimeoutException
 
 from webdriver_manager.chrome import ChromeDriverManager
 
+# ---名字配置 ---
+NAME_NT = "Namtan Tipnaree"
+NAME_FR = "Film Rachanun"
+TO_EXE_NAME = NAME_NT # 實際名字 edit here (NAME_NT or NAME_FR)
+
 # --- 配置 ---
 TARGET_URL = "https://www.thaiupdate.info/the-best-glamorous-star-final/"
-CANDIDATE_NAME_LOGGING = "Film Rachanun" # 用於日誌記錄的候選人名字
-CANDIDATE_NAME_TEXT_TO_FIND = "Film Rachanun" # 用於 XPath 文本搜索的實際名字
+CANDIDATE_NAME_LOGGING = TO_EXE_NAME # 用於日誌記錄
+CANDIDATE_NAME_TEXT_TO_FIND = TO_EXE_NAME # 用於 XPath 文本搜索
 
 VOTE_INTERVAL_MINUTES = 5
 
@@ -122,22 +127,10 @@ def vote_for_candidate(driver, candidate_name_text_for_search, candidate_name_fo
         return True
         
     except TimeoutException:
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        screenshot_path = f"error_xpath_timeout_{candidate_name_text_for_search.replace(' ', '_')}_{timestamp}.png"
-        logging.error(f"使用 XPath 定位元素超時 (候選人: {candidate_name_text_for_search})。請檢查 XPath 和候選人名字是否正確。已保存截圖: {screenshot_path}")
-        try:
-            driver.save_screenshot(screenshot_path)
-        except Exception as e_ss:
-            logging.error(f"保存截圖失敗: {e_ss}")
+        logging.error(f"使用 XPath 定位元素超時 (候選人: {candidate_name_text_for_search})。請檢查 XPath 和候選人名字是否正確。")
         return False
     except Exception as e:
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        screenshot_path = f"error_xpath_vote_exception_{candidate_name_text_for_search.replace(' ', '_')}_{timestamp}.png"
-        logging.error(f"執行 XPath 投票操作時發生錯誤 (候選人: {candidate_name_text_for_search}): {str(e)}。已保存截圖: {screenshot_path}")
-        try:
-            driver.save_screenshot(screenshot_path)
-        except Exception as e_ss:
-            logging.error(f"保存截圖失敗: {e_ss}")
+        logging.error(f"執行 XPath 投票操作時發生錯誤 (候選人: {candidate_name_text_for_search}): {str(e)}")
         return False
 
 # --- main_vote_process 和 wait_until_next_vote_cycle 與上一版本相似 ---
@@ -150,17 +143,12 @@ def main_vote_process():
             if check_vote_success(driver): # 檢查投票結果
                 logging.info(f"成功為 {CANDIDATE_NAME_LOGGING} 投票！")
             else:
-                logging.warning(f"為 {CANDIDATE_NAME_LOGGING} 投票後，未能確認成功狀態。請檢查日誌和截圖。")
+                logging.warning(f"為 {CANDIDATE_NAME_LOGGING} 投票後，未能確認成功狀態。請檢查日誌。")
         else:
             logging.error(f"為 {CANDIDATE_NAME_LOGGING} 的投票流程未能成功執行選擇或提交步驟。")
         time.sleep(2)
     except Exception as e:
         logging.error(f"在主投票過程中發生錯誤: {str(e)}")
-        if driver:
-            try:
-                driver.save_screenshot(f"error_main_process_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
-            except Exception as screenshot_e:
-                logging.error(f"嘗試保存錯誤截圖失敗: {screenshot_e}")
     finally:
         if driver:
             logging.info("關閉瀏覽器...")
