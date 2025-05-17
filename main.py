@@ -76,14 +76,17 @@ def check_vote_success(driver):
             return 'not found';
         """)
         
-        # logging.info(f"檢測到訊息邊框顏色: {border_color}")
+        logging.info(f"檢測到訊息邊框顏色: {border_color}")
         
         # 檢查邊框顏色是否為綠色 (#008000)
-        if '#008000' in border_color:
+        if 'rgb(0, 128, 0)' in border_color or '#008000' in border_color:
             logging.info("檢測到成功指示：邊框顏色為綠色 (#008000)")
             return True
-        else:
+        elif 'rgb(255, 0, 0)' in border_color or '#ff0000' in border_color:
             logging.warning("檢測到失敗指示：邊框顏色為紅色 (#ff0000)")
+            return False
+        else:
+            logging.warning(f"未能確認投票狀態：邊框顏色 {border_color} 不是預期的顏色")
             return False
     except Exception as e:
         logging.error(f"檢查投票結果時發生錯誤：{str(e)}")
@@ -113,7 +116,7 @@ def vote_for_candidate(driver, candidate_name_text_for_search, candidate_name_fo
         )
         
         if vote_button_display == "none":
-            logging.info(f"檢測到投票按鈕為 display: none，已經為 {candidate_name_for_log} 投票！")
+            logging.info(f"檢測到投票按鈕為 display: none，表示已經為 {candidate_name_for_log} 投票！")
             return "already_voted"  # 返回特殊標記表示已投票
         
         logging.info(f"投票按鈕顯示狀態: {vote_button_display}，將繼續投票流程。")
@@ -135,7 +138,8 @@ def vote_for_candidate(driver, candidate_name_text_for_search, candidate_name_fo
         time.sleep(1)  # 增加點擊後的等待時間
 
         # 2. 使用 JavaScript 點擊投票按鈕
-        logging.info(f"嘗試使用 XPath 點擊投票按鈕: {XPATH_VOTE_BUTTON}")
+        # logging.info(f"嘗試使用 XPath 點擊投票按鈕: {XPATH_VOTE_BUTTON}")
+        logging.info("嘗試使用 XPath 點擊投票按鈕")
         vote_button_element = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.XPATH, XPATH_VOTE_BUTTON))
         )
@@ -217,7 +221,7 @@ if __name__ == "__main__":
     
     # 定義不同狀態的等待時間（分鐘）
     wait_times = {
-        "vote_success": VOTE_INTERVAL_MINUTES,   # 成功投票後等待5分鐘
+        "vote_success": VOTE_INTERVAL_MINUTES,  # 成功投票後等待5分鐘
         "already_voted": 1,                      # 已投票狀態等待1分鐘
         "vote_unknown": 2,                       # 投票結果未知等待2分鐘
         "vote_failed": 3,                        # 投票失敗等待3分鐘
